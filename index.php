@@ -1,7 +1,8 @@
 <?php
 
-/*Author :SVJ
-Project 1*/
+
+
+
 
 
 
@@ -12,7 +13,7 @@ error_reporting(E_ALL);
 
 //instantiate the program object
 
-//Class to load classes it finds the file when the progrm starts to fail for calling a missing class
+//Class to load classes, it finds the file when the program fails to call a missing class
 class Manage {
     public static function autoload($class) {
         //you can put any file name or directory here
@@ -31,7 +32,7 @@ class main {
     public function __construct()
     {
         //print_r($_REQUEST);
-        //set default page request when no parameters are in URL
+        //set default page request when no parameters are in the URL
         $pageRequest = 'homepage';
         $filename='';
         //check if there are parameters
@@ -90,8 +91,7 @@ class homepage extends page {
 
     private $f_name;
 
-    //Overwrite the constructor so that we can same the file name
-    public function __construct($filename)
+     public function __construct($filename)
     {
         parent::__construct();
         $this->f_name=$filename;
@@ -171,7 +171,7 @@ class htmlTable extends page {
     private $f_name;
     public function __construct($file)
     {
-        //call the parent constructor,so that html page will be intialize.
+        //call the parent constructor,so that html page will be intialized
         parent::__construct();
         $this->f_name=$file;
 
