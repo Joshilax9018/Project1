@@ -5,7 +5,6 @@
 
 
 
-
 //turn on debugging messages
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
@@ -13,7 +12,7 @@ error_reporting(E_ALL);
 
 //instantiate the program object
 
-//Class to load classes, it finds the file when the program fails to call a missing class
+//Class to load classes it finds the file when the progrm fails to call a missing class
 class Manage {
     public static function autoload($class) {
         //you can put any file name or directory here
@@ -32,7 +31,7 @@ class main {
     public function __construct()
     {
         //print_r($_REQUEST);
-        //set default page request when no parameters are in the URL
+        //set default page request when no parameters are in URL
         $pageRequest = 'homepage';
         $filename='';
         //check if there are parameters
@@ -91,7 +90,8 @@ class homepage extends page {
 
     private $f_name;
 
-     public function __construct($filename)
+    
+    public function __construct($filename)
     {
         parent::__construct();
         $this->f_name=$filename;
@@ -126,11 +126,7 @@ class uploadform extends page
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
 
-        /*Check if the file is already present or not*/
-        if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-        }
+        
         /*Check for the bigger file size,so that big file will not be loaded on webserver utilizing its
         full space*/
         if ($_FILES["fileToUpload"]["size"] > 500000) {
@@ -193,7 +189,7 @@ class htmlTable extends page {
 
 
 
-    /*This function will be use to read the CSV file from the server and
+    /*This function will be used to read the CSV file from the server and
     print int as HTML table.*/
 
     public function createTable($filename)
@@ -222,7 +218,7 @@ class htmlTable extends page {
 class errorhtmlPage extends page{
 
     public function get(){
-        //If some error occurs while uploading the csv file, display the errorpage
+        //If some error occurs while uploading the csv file, display the error page
         $this->html .'<h1>'.'500'.'</h1>';
         $this->html .='<h2>'."Sorry,there was an error uploading your file .Please try again Later".'</h2>';
        
@@ -233,7 +229,7 @@ class errorhtmlPage extends page{
 */
 class stringFunctions{
 
-    //This fution will print HTML page
+    //This function will print HTML page
     public static function printThis($text){
         print($text);
     }
